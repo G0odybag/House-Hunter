@@ -1,0 +1,3 @@
+DIREMU- Frontend(searchbar, dropdown then front end stuffs{React.js})
+JOSH- Backend (evrything{php,Sql})
+GOODNESS- UI/UX (tailwind css)
