@@ -16,7 +16,7 @@ export default function Hero() {
           Discover thousands of properties with verified listings
         </p>
         
-        <div className="w-full max-w-2xl bg-white rounded-lg shadow-xl p-2 flex">
+        <div className="w-full max-w-2xl bg-white rounded-lg shadow-xl p-2 flex justify-between">
           <div className="flex items-center pl-4 pr-2 text-gray-500">
             <FiMapPin className="mr-2" />
             <input
