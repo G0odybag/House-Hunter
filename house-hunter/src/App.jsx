@@ -4,8 +4,8 @@ import store from './store';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PropertyGrid from './components/PropertyGrid';
-import Signup from './components/Signup';
-import Login from './components/Login';
+import Signup from './components/Signup.jsx';
+import Login from './components/Login.jsx';
 
 export default function App() {
   return (
