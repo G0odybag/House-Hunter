@@ -27,7 +27,7 @@ export default function Hero() {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <button className="bg-emerald-600 text-white px-6 py-3 rounded-md hover:bg-emerald-700 transition flex items-center">
+          <button className="bg-emerald-600 px-2 text-white md:px-6 md:py-3 rounded-md hover:bg-emerald-700 transition flex items-center">
             <FiSearch className="mr-2" />
             Search
           </button>

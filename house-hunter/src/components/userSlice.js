@@ -5,6 +5,7 @@ export const userSlice = createSlice({
   initialState: {
     user: null,
     isAuthenticated: false,
+    users: [],
   },
   reducers: {
     login: (state, action) => {
@@ -18,7 +19,9 @@ export const userSlice = createSlice({
     signup: (state, action) => {
       state.user = action.payload.user;
       state.isAuthenticated = true;
+      state.users.push(action.payload.details);
       console.log("User details:", action.payload.details);
+      console.log(state.isAuthenticated)
     },
   },
 });

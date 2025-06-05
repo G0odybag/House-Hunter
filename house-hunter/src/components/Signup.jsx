@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from './userSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
   const [username, setUsername] = useState('');
@@ -8,6 +9,7 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,8 +17,10 @@ export default function Signup() {
       setError('Please fill in all fields.');
       return;
     }
-    dispatch(signup({ user: { username, email }, details: { username, email, password } }));
-    window.location.href = '/';
+
+    console.log("Signing up with details:", { username, email, password });
+    dispatch(signup({ user: { username }, details: { username, email, password } }));
+    navigate('/');
   };
 
   return (
@@ -38,7 +42,7 @@ export default function Signup() {
         </div>
         <button type="submit" className="w-full bg-emerald-600 text-white py-2 rounded hover:bg-emerald-700 transition">Sign Up</button>
         <div className="mt-4 text-center">
-          <a href="/login" className="text-emerald-600 hover:underline">Already have an account? Login</a>
+          <button className="text-emerald-600 hover:underline" onClick={() => navigate("/login")}>Already have an account? Log in</button>
         </div>
       </form>
     </div>
