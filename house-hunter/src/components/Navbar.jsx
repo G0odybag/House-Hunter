@@ -2,10 +2,13 @@ import { useState } from "react";
 import { FiMenu, FiX, FiSearch } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { logout } from "./userSlice";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
   const user = useSelector((state) => state.user.user);
   return (
@@ -32,13 +35,16 @@ export default function Navbar() {
             Agents
           </a>
           {isAuthenticated ? (
-            <div>
+            <div className="flex items-center space-x-4">
               <span>
                 Welcome,{" "}
                 <span className="text-emerald-600 font-semibold">
-                  {user?.username || user?.email || "User"}
+                  {user?.username || "User"}
                 </span>
               </span>
+              <div>
+                <button onClick={()=> dispatch(logout())} className="px-3 py-2 bg-green-400 rounded-md text-white">Log out</button>
+              </div>
             </div>
           ) : (
             <div className="flex space-x-4">
@@ -79,13 +85,16 @@ export default function Navbar() {
             Agents
           </a>
           {isAuthenticated ? (
-            <div className="py-2">
+            <div className="py-2 flex flex-col space-y-2">
               <span>
                 Welcome,{" "}
                 <span className="text-emerald-600 font-semibold">
-                  {user?.username || user?.email || "User"}
+                  {user?.username || "User"}
                 </span>
               </span>
+              <div>
+                <button onClick={()=> dispatch(logout())} className="px-3 py-2 bg-green-400 rounded-md text-white">Log out</button>
+              </div>
             </div>
           ) : (
             <div className="flex flex-col space-y-2">
