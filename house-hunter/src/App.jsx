@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import PropertyGrid from './components/PropertyGrid';
 import Signup from './components/Signup.jsx';
 import Login from './components/Login.jsx';
+import PropertyDisplay from './components/PropertyDisplay.jsx';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             } />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/property/:pid" element={<PropertyDisplay />} />
           </Routes>
         </div>
       </Router>
