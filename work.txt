@@ -2,3 +2,4 @@ DIREMU- Frontend(searchbar, dropdown then front end stuffs{React.js})
 JOSH- Backend (evrything{php,Sql})
 GOODNESS- UI/UX (tailwind css)
 https://house-hunter-ej3v-c0ll80z85-g0odybags-projects.vercel.app/
+https://house-hunter-ej3v-git-main-g0odybags-projects.vercel.app/
