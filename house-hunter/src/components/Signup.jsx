@@ -2,27 +2,22 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from './userSlice';
 import { useNavigate } from 'react-router-dom';
+import axios from '../axiosInstance';
 
-export default function Signup() {
-  const [username, setUsername] = useState('');
+const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    if (!username || !email || !password) {
-      setError('Please fill in all fields.');
-      return;
+    try {
+      const response = await axios.post('/signup', { email, password });
+      console.log('Signup successful:', response.data);
+      // Handle successful signup (e.g., redirect, show message)
+    } catch (error) {
+      console.error('Signup error:', error.response.data);
+      // Handle error (e.g., show error message)
     }
-
-    console.log("Signing up with details:", { username, email, password });
-    dispatch(signup({ user: { username }, details: { username, email, password } }));
-    navigate('/');
   };
-
   return (
     <div className="flex items-center justify-center min-h-[60vh] bg-gray-50">
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
