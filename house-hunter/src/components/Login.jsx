@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { login } from './userSlice';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import axios from '../axiosInstance';
 
 export default function Login() {
   const [email, setEmail] = useState('');
