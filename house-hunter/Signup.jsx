@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from '../axiosInstance';
 
-export default function Signup() {
-  const [username, setUsername] = useState('');
+const Signup = () => {
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
