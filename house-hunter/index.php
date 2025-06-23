@@ -14,7 +14,5 @@
 
         echo json_encode($response);
     }
-    else{
-        echo json_encode(["status" => "false", "message" => "error occured"]);
-    }
+
 ?>

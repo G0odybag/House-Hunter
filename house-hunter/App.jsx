@@ -13,7 +13,7 @@ const[name, setName] = useState('')
 
 const handleSubmit = async (e) => {
   e.preventDefault()
-  const response = await axios.post({name})
+  const response = await axios.post('http://localhost/php_backend/index.php',{name})
   console.log(response)
 }
 
