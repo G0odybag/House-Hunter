@@ -2,34 +2,25 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from './userSlice';
+import axios from '../axiosInstance';
 
-export default function Login() {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      setError('Please fill in all fields.');
-      return;
-    }
-
     try {
-      const response = await axios.fetch('http://localhost/your-api-path/login.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        setError(result.error || 'Login failed.');
-        return;
-      }
+      const response = await axios.post('/login', { email, password });
+      console.log('Login successful:', response.data);
+      // Handle successful login (e.g., redirect, store token)
+    } catch (error) {
+      console.error('Login error:', error.response.data);
+      // Handle error (e.g., show error message)
+    }
 
       // Store user data in Redux
       dispatch(login({ user: result.user }));
